@@ -1,5 +1,6 @@
 package ru.job4j.tdd;
 
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -34,5 +35,15 @@ public class CinemaTest {
         cinema.add(new Session3D());
         List<Session> sessions = cinema.find(session -> true);
         assertThat(sessions.get(0), is(new Session3D()));
+    }
+
+    @Test
+    public void whenSetAbsentPlace() {
+        Account account = new AccountCinema();
+        Cinema cinema = new Cinema3D();
+        Calendar date = Calendar.getInstance();
+        date.set(2020, 10, 10, 23, 00);
+        Ticket ticket = cinema.buy(account, 10, 10, date);
+        assertThat(ticket, is(nullValue()));
     }
 }
