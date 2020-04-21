@@ -78,4 +78,56 @@ public class ReportEngineTest {
                 .append(System.lineSeparator());
         assertThat(engine.generate(em -> true, text, hr), is(expect.toString()));
     }
+
+    @Test
+    public void whenGenerateReportForITDepartmentInXmlFormat() {
+        MemStore store = new MemStore();
+        Calendar now = Calendar.getInstance();
+        Employee worker = new Employee("Ivan", now, now, 100);
+        store.add(worker);
+        Report xml = new ReportXml();
+        Department dev = new ITDepartment();
+        ReportEngine engine = new ReportEngine(store);
+        StringBuilder expect = new StringBuilder()
+                .append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")
+                .append(System.lineSeparator())
+                .append("<report>")
+                .append(System.lineSeparator())
+                .append("<employee>")
+                .append(System.lineSeparator())
+                .append("<line>").append("Name: ").append(worker.getName()).append(";").append("</line>")
+                .append(System.lineSeparator())
+                .append("<line>").append("Hired: ").append(worker.getHired()).append(";").append("</line>")
+                .append(System.lineSeparator())
+                .append("<line>").append("Fired: ").append(worker.getFired()).append(";").append("</line>")
+                .append(System.lineSeparator())
+                .append("<line>").append("Salary: ").append(worker.getSalary()).append(";").append("</line>")
+                .append(System.lineSeparator())
+                .append("</employee>")
+                .append(System.lineSeparator())
+                .append("</report>")
+                .append(System.lineSeparator());
+        assertThat(engine.generate(em -> true, xml, dev), is(expect.toString()));
+    }
+
+    @Test
+    public void whenGenerateReportForHRDepartmentInJsonFormat() {
+        MemStore store = new MemStore();
+        Calendar now = Calendar.getInstance();
+        Employee worker = new Employee("Ivan", now, now, 100);
+        store.add(worker);
+        Report json = new ReportJson();
+        Department hr = new HRDepartment();
+        ReportEngine engine = new ReportEngine(store);
+        StringBuilder expect = new StringBuilder()
+                .append("{ report: [")
+                .append(System.lineSeparator())
+                .append("Name: ").append(worker.getName()).append(";")
+                .append(System.lineSeparator())
+                .append("Salary: ").append(worker.getSalary()).append(";")
+                .append(System.lineSeparator())
+                .append("] }")
+                .append(System.lineSeparator());
+        assertThat(engine.generate(em -> true, json, hr), is(expect.toString()));
+    }
 }
