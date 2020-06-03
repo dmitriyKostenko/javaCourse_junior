@@ -1,6 +1,7 @@
-package ru.job4j.lsp;
+package ru.job4j.lsp.storage;
 
 import org.junit.Test;
+import ru.job4j.lsp.storage.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -32,7 +33,7 @@ public class ControlQualityTest {
     public void whenDistributeInShopWithDiscount() {
         Shop shop = new Shop();
         ControlQuality controlQuality = new ControlQuality(List.of(new Warehouse(), shop, new Trash()));
-        Eggs eggs = new Eggs("Ryaba", LocalDate.of(2020, 5, 4), LocalDate.of(2020, 4, 20), 100.00, 0);
+        Eggs eggs = new Eggs("Ryaba", LocalDate.of(2020, 5, 5), LocalDate.of(2020, 4, 20), 100.00, 0);
         controlQuality.sort(eggs);
         assertThat(shop.getAllFood().get(0), is(eggs));
         assertThat(shop.getAllFood().get(0).getPrice(), is(75.0));

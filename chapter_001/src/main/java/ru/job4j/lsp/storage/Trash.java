@@ -1,16 +1,16 @@
-package ru.job4j.lsp;
+package ru.job4j.lsp.storage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Warehouse implements Storage {
+public class Trash implements Storage {
     private final List<Food> foods = new ArrayList<>();
 
     @Override
     public boolean distribute(Food food) {
         boolean rsl = false;
         double percentShelfLife = food.getPercentShelfLife();
-        if (percentShelfLife < 25) {
+        if (percentShelfLife >= 100) {
             foods.add(food);
             rsl = true;
         }
