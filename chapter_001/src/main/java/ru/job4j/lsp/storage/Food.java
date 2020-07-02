@@ -68,12 +68,6 @@ public abstract class Food {
 
     @Override
     public String toString() {
-        return "Food{" +
-                "name='" + name + '\'' +
-                ", expireDate=" + expireDate +
-                ", createDate=" + createDate +
-                ", price=" + price +
-                ", discount=" + discount +
-                '}';
+        return "Food{" + "name='" + name + '\'' + ", expireDate=" + expireDate + ", createDate=" + createDate + ", price=" + price + ", discount=" + discount + '}';
     }
 }
