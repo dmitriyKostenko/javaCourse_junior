@@ -29,10 +29,11 @@ public class FreeParking implements Parking {
     }
 
     /**
-     * @param vehicle
+     * Method remove vehicle from parking.
+     * @param number
      */
     @Override
-    public void remove(Vehicle vehicle) {
+    public void remove(String number) {
 
     }
 }

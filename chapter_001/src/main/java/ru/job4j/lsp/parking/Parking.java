@@ -21,8 +21,8 @@ public interface Parking {
     void add(Vehicle vehicle);
 
     /**
-     *
-     * @param vehicle
+     * Method remove vehicle from parking.
+     * * @param number
      */
-    void remove(Vehicle vehicle);
+    void remove(String number);
 }
