@@ -1,5 +1,7 @@
 package ru.job4j.lsp.parking;
 
+import java.util.List;
+
 /**
  * Interface for parking.
  * @author Dmitrii Kostenko kdm.tag@gmail.com
@@ -25,4 +27,9 @@ public interface Parking {
      * * @param number
      */
     void remove(String number);
+
+    /**
+     * @return list of vehicle
+     */
+    List<Vehicle> getList();
 }

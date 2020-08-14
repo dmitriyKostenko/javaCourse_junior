@@ -1,5 +1,7 @@
 package ru.job4j.lsp.parking;
 
+import java.util.List;
+
 /**
  * Class FreParking example implementation of the Parking interface.
  * @author Dmitrii Kostenko kdm.tag@gmail.com
@@ -35,5 +37,13 @@ public class FreeParking implements Parking {
     @Override
     public void remove(String number) {
 
+    }
+
+    /**
+     * @return list of vehicle
+     */
+    @Override
+    public List<Vehicle> getList() {
+        return null;
     }
 }
