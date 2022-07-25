@@ -8,6 +8,6 @@
 Начало прохождения курса - 25 декабря 2019 года.
 
 14 марта 2020 года - завершение уровня "Стажёр" 
-[https://github.com/dmitry-kostenko/javaCourse_trainee]
+[https://github.com/dmitriyKostenko/javaCourse_trainee]
  
 В этом репозитории собраны выполненные задания из уровня "Junior".
